@@ -15,6 +15,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('organisation_id1')->constrained('organisations')->cascadeOnDelete();
             $table->foreignId('organisation_id2')->constrained('organisations')->cascadeOnDelete();
+            $table->string('relationship');
+            $table->date('from_date');
+            $table->date('to_date')->nullable();
             $table->timestamps();
         });
     }
