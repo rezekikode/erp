@@ -11,14 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('organisation_relationships', function (Blueprint $table) {
-            $table->id();
+        Schema::create('organisation_has_organisations', function (Blueprint $table) {
             $table->foreignId('organisation_id1')->constrained('organisations')->cascadeOnDelete();
             $table->foreignId('organisation_id2')->constrained('organisations')->cascadeOnDelete();
             $table->string('relationship');
             $table->date('from_date');
             $table->date('to_date')->nullable();
             $table->timestamps();
+
+            $table->primary(['organisation_id1', 'organisation_id2']);
         });
     }
 

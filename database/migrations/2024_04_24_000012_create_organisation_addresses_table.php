@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('organisation_addresses', function (Blueprint $table) {
-            $table->id();
+        Schema::create('organisation_has_addresses', function (Blueprint $table) {
             $table->foreignId('organisation_id')->constrained('organisations')->cascadeOnDelete();
             $table->foreignId('address_id')->constrained('addresses')->cascadeOnDelete();
             $table->date('from_date');
             $table->date('to_date')->nullable();
             $table->timestamps();
+            $table->primary(['organisation_id', 'address_id']);
         });
     }
 
