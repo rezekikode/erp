@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('organisation_has_addresses', function (Blueprint $table) {
+        Schema::create('organisation_has_building', function (Blueprint $table) {
             $table->foreignId('organisation_id')->constrained('organisations')->cascadeOnDelete();
-            $table->foreignId('address_id')->constrained('addresses')->cascadeOnDelete();
+            $table->foreignId('building_id')->constrained('buildings')->cascadeOnDelete();
             $table->date('from_date');
             $table->date('to_date')->nullable();
             $table->timestamps();
-            $table->primary(['organisation_id', 'address_id']);
+            $table->primary(['organisation_id', 'building_id']);
         });
     }
 
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('organisation_addresses');
+        Schema::dropIfExists('organisation_building');
     }
 };
