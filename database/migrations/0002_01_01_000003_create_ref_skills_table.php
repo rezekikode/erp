@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('people_has_skills', function (Blueprint $table) {
-            $table->foreignId('person_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('skill_id')->constrained()->cascadeOnDelete();
+        Schema::create('ref_skills', function (Blueprint $table) {
+            $table->id();
+            $table->string('skill_name');
             $table->timestamps();
-            $table->primary(['person_id', 'skill_id']);
         });
     }
 
@@ -24,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('people_skills');
+        Schema::dropIfExists('ref_skills');
     }
 };
