@@ -11,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ref_organisation_type', function (Blueprint $table) {
-            $table->id();
-            $table->string('type_name');
+        Schema::create('ref_jobs', function (Blueprint $table) {
+            $table->id();  
+            $table->string('job_name');  
+            $table->string('job_description');
+            $table->integer('min_salary');
+            $table->integer('max_salary');                   
             $table->timestamps();
         });
     }
@@ -23,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ref_organisation_type');
+        Schema::dropIfExists('ref_jobs');
     }
 };
