@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('events', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('event_type_id')->constrained('ref_event_types')->cascadeOnDelete();            
+        Schema::create('projects', function (Blueprint $table) {
+            $table->id();            
+            $table->foreignId('ref_project_type_id')->constrained('ref_project_types');
             $table->date('from_date');
             $table->date('to_date');
             $table->time('from_time');
             $table->time('to_time');
-            $table->string('event_name');
-            $table->string('event_description');
+            $table->string('project_name');
+            $table->string('project_description');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('events');
+        Schema::dropIfExists('projects');
     }
 };
