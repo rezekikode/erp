@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->foreignId('ref_transaction_type_id')->constrained('ref_transaction_types')->cascadeOnDelete();          
-            $table->foreignId('person_id')->constrained('peoples')->cascadeOnDelete();
+            $table->foreignId('person_id')->constrained('persons')->cascadeOnDelete();
             $table->string('person_name');
             $table->date('order_date');
             $table->timestamps();
