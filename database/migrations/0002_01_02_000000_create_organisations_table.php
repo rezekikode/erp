@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('organisations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('organisation_type_id')->constrained('ref_organisation_types')->cascadeOnDelete();
+            $table->foreignId('ref_organisation_type_id')->constrained('ref_organisation_types')->cascadeOnDelete();
             $table->string('organisation_name');
             $table->string('email');
             $table->string('phone');            
