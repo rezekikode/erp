@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ref_organisation_categories', function (Blueprint $table) {
-            $table->id();
-            $table->string('category_name');
+        Schema::create('supplier_has_items', function (Blueprint $table) {
+            $table->foreignId('supplier_id')->constrained('suppliers')->cascadeOnDelete();
+            $table->foreignId('item_id')->constrained('items')->cascadeOnDelete();
             $table->timestamps();
+            $table->primary(['supplier_id', 'item_id']);
         });
     }
 
@@ -23,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ref_organisation_categories');
+        Schema::dropIfExists('supplier_has_items');
     }
 };

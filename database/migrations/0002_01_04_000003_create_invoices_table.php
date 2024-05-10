@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ref_product_categories', function (Blueprint $table) {
+        Schema::create('invoices', function (Blueprint $table) {
             $table->id();
-            $table->string('category_name');
+            $table->foreignId('order_id')->constrained('orders')->cascadeOnDelete();                  
+            $table->date('invoice_date');
             $table->timestamps();
         });
     }
@@ -23,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ref_product_categories');
+        Schema::dropIfExists('invoices');
     }
 };

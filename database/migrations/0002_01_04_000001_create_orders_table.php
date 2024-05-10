@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('people_has_roles', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('ref_transaction_type_id')->constrained('ref_transaction_types')->cascadeOnDelete();          
             $table->foreignId('person_id')->constrained('peoples')->cascadeOnDelete();
-            $table->foreignId('role_id')->constrained('roles')->cascadeOnDelete();
+            $table->string('person_name');
+            $table->date('order_date');
             $table->timestamps();
-            $table->primary(['person_id', 'role_id']);
         });
     }
 
@@ -24,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('people_has_roles');
+        Schema::dropIfExists('orders');
     }
 };
