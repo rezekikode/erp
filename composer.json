@@ -2,7 +2,7 @@
     "name": "rezekikode/erp",
     "type": "project",
     "description": "Rezeki Kode ERP.",
-    "keywords": ["laravel", "framework", "erp"],
+    "keywords": ["laravel", "framework", "erp", "rezeki kode", "rezekikode"],
     "license": "MIT",
     "require": {
         "php": "^8.2",
