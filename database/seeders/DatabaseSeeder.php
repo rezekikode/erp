@@ -23,7 +23,9 @@ class DatabaseSeeder extends Seeder
         $this->call([
             AddressSeeder::class,
             RefOrganisationTypeSeeder::class,
+            RefEventTypeSeeder::class,
             RefEmployeeTypeSeeder::class,
+            OrganisationSeeder::class,
         ]);
     }
 }
