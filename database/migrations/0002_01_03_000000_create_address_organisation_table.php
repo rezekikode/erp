@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('organisation_has_addresses', function (Blueprint $table) {
-            $table->foreignId('organisation_id')->constrained('organisations')->cascadeOnDelete();
+        Schema::create('address_organisation', function (Blueprint $table) {
             $table->foreignId('address_id')->constrained('addresses')->cascadeOnDelete();
+            $table->foreignId('organisation_id')->constrained('organisations')->cascadeOnDelete();            
             $table->date('from_date');
             $table->date('to_date')->nullable();
             $table->timestamps();
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('organisation_has_addresses');
+        Schema::dropIfExists('address_organisation');
     }
 };
