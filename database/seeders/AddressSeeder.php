@@ -13,12 +13,32 @@ class AddressSeeder extends Seeder
      */
     public function run(): void
     {
-        $address = new Address();
-        $address->street = '123 Main St';       
-        $address->country = 'USA';
-        $address->city = 'Springfield';
-        $address->state = 'IL';
-        $address->zip = '62701';
-        $address->save();
+        $address = [
+            [
+                'street' => '456 Elm',
+                'country' => 'USA',
+                'city' => 'Springfield',
+                'state' => 'IL',
+                'zip' => '62702'
+            ],
+            [
+                'street' => '789 Oak',
+                'country' => 'USA',
+                'city' => 'Springfield',
+                'state' => 'IL',
+                'zip' => '62703'
+            ],  
+            [
+                'street' => '123 Maple',
+                'country' => 'USA',
+                'city' => 'Springfield',
+                'state' => 'IL',
+                'zip' => '62701'
+            ],                                                          
+        ];
+
+        foreach ($address as $address) {
+            Address::create($address);
+        }
     }
 }

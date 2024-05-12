@@ -23,9 +23,17 @@ class DatabaseSeeder extends Seeder
         $this->call([
             AddressSeeder::class,
             RefOrganisationTypeSeeder::class,
+            RefLeaveTypeSeeder::class,
             RefEventTypeSeeder::class,
             RefEmployeeTypeSeeder::class,
+            RefPaymentMethodSeeder::class,
             OrganisationSeeder::class,
+            PeopleSeeder::class,
+            BuildingSeeder::class,
+            FloorSeeder::class,
+            WardSeeder::class,
+            RoomSeeder::class,
+            BedSeeder::class,
         ]);
     }
 }
