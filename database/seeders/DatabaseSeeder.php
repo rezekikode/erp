@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             RefLeaveTypeSeeder::class,
             RefEventTypeSeeder::class,
             RefEmployeeTypeSeeder::class,
+            RefCustomerTypeSeeder::class,
             RefPaymentMethodSeeder::class,
             OrganisationSeeder::class,
             PeopleSeeder::class,
